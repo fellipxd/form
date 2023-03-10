@@ -1,1 +1,1 @@
-# SideHUstle Internship Week 1 task
+# SideHustle Internship Week 1 task
