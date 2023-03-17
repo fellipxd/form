@@ -2,22 +2,48 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Simple Form</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clone Wars</title>
     <style>
-      /* Default styles for all screen sizes */
       body {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         margin: 0;
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .img-container {
+        flex: 1;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      img {
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+      }
+      .form-container {
+        flex: 1;
+        padding: 0 40px;
+        align-items: center;
+        justify-content: center;
       }
       form {
-        width: 40%;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px #ccc;
+        display: flex;
+        padding: 1.5rem;
+        flex-direction: column;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      h2,
+      h3 {
+        text-align: center;
       }
       label {
         display: block;
@@ -29,18 +55,28 @@
       input[type='password'],
       select {
         width: 100%;
-        padding: 5px;
+        background-color: rgba(244, 246, 246, 0.8);
+        padding: 10px 5px;
         border-radius: 5px;
         border: 1px solid #ccc;
         margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
       }
       input[type='submit'] {
-        background-color: #4caf50;
+        background-color: transparent;
+        border: 2px solid gray;
         color: white;
         padding: 10px 20px;
-        border: none;
+        width: 80%;
         border-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
         cursor: pointer;
+      }
+      input[type='submit']:hover {
+        background-color: grey;
+        color: beige;
       }
       .error {
         color: red;
@@ -52,48 +88,81 @@
         font-size: 16px;
         margin-bottom: 20px;
       }
+      .small-logo {
+        display: none;
+      }
 
-      /* Media query for smaller screens */
-      @media only screen and (max-width: 700px) {
-        form {
-          width: 90vw;
+      @media only screen and (max-width: 930px) {
+        .img-container {
+          display: none;
         }
-        input[type='submit'] {
-          font-size: 0.9rem;
+        .small-logo {
+          display: flex;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      @media only screen and (max-width: 400px) {
+        .form-container {
+          flex: 1;
+          padding: 0 20px;
+          align-items: center;
+          justify-content: center;
+        }
+        form {
+          display: flex;
+          padding: 0 0.5rem;
+          flex-direction: column;
+          margin-top: auto;
+          margin-bottom: auto;
         }
       }
     </style>
   </head>
   <body>
-    <form id="myForm" onsubmit="return validateForm()">
-      <label>Name:</label>
-      <input type="text" name="name" placeholder="Name" required />
+    <div class="img-container">
+      <img src="\imagess.jpeg" alt="side logo" />
+    </div>
+    <div class="form-container">
+      <form id="myForm" onsubmit="validateForm()">
+        <img class="small-logo" src="\imagess.jpeg" alt="side logo" />
+        <h2>Signup to shhhh a Jedi today!!!</h2>
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="Name" required />
 
-      <label>Email:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email"
-        required
-      />
+        <label>Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
 
-      <label>Phone:</label>
-      <input type="tel" name="phone" placeholder="Phone" required />
+        <label>Phone:</label>
+        <input type="tel" name="phone" placeholder="Phone" required />
 
-      <label>Gender:</label>
-      <select name="gender" required>
-        <option value="" disabled selected>Select your gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-      </select>
+        <label>Gender:</label>
+        <select name="gender" required>
+          <option class="my-option" value="" disabled selected>
+            Select your gender
+          </option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
 
-      <label>Password:</label>
-      <input type="password" name="password" placeholder="Password" required />
+        <label>Password:</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
 
-      <input type="submit" value="Submit" />
-    </form>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
 
     <script>
       function validateForm() {
@@ -111,7 +180,10 @@
 
         // Check for valid email format
         var email = document.getElementById('email').value;
+
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var message =
+          'PSYCH!!!\n A JEDI will be with you shortly\n The force will definitely  be with you \u{1F608} ';
         if (!emailRegex.test(email)) {
           document
             .getElementById('email')
@@ -119,9 +191,8 @@
           form.reportValidity();
           return false;
         }
-
         // Display success message
-        alert('Form submitted successfully!');
+        alert(message);
         return true;
       }
     </script>
