@@ -181,7 +181,7 @@ h4 {
   left: 0;
   transition: transform 0.5s ease;
 }
-.photo-grid-item:hover:active img {
+.photo-grid-item:hover img {
   transform: scale(1.2);
 }
 .black-bg {
@@ -202,7 +202,7 @@ h4 {
 .black-bg h3 {
   font-size: 30px;
 }
-.photo-grid-item:hover:active .black-bg {
+.photo-grid-item:hover .black-bg {
   opacity: 0.7;
 }
 
