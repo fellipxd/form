@@ -418,6 +418,7 @@ h4 {
 
 @media only screen and (max-width: 600px) {
   .hero {
+    height: 100vh;
     color: beige;
     background-image: url('/images/heroBackground.png');
     background-repeat: no-repeat;
