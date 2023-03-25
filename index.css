@@ -420,7 +420,7 @@ h4 {
   .hero {
     height: 100vh;
     color: beige;
-    background-image: url('/images/heroBackground.png');
+    background-image: url('/images/heroBackground.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
