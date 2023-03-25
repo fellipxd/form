@@ -486,6 +486,7 @@ h4 {
 
   .hero {
     padding: 0px;
+    height: 100vh;
   }
 
   .text-group h1 {
