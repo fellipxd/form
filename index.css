@@ -175,7 +175,7 @@ h4 {
 .photo-grid-item img {
   height: 100%;
   width: 100%;
-  border-radius: 2%;
+  border-radius: inherit;
   position: absolute;
   top: 0;
   left: 0;
@@ -194,6 +194,7 @@ h4 {
   background-color: #706458;
   color: white;
   opacity: 0;
+  transform: scale(0);
   align-items: center;
   justify-content: center;
   transition: opacity 0.5s ease;
@@ -204,6 +205,7 @@ h4 {
 }
 .photo-grid-item:hover .black-bg {
   opacity: 0.7;
+  transform: scale(1);
 }
 
 .inspiration-desc {
@@ -237,6 +239,22 @@ h4 {
 .footer-desc div {
   width: 8.4219rem;
 }
+
+.footer p,
+nav p {
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.4s linear;
+  text-transform: lowercase;
+}
+
+.footer p:hover,
+nav p:hover {
+  text-transform: uppercase;
+  transition: transform 0.4s linear;
+  transform: scale(1.1);
+}
+
 .footer-logo-img {
   margin-top: 15px;
 }
